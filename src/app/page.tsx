@@ -281,7 +281,7 @@ export default function Home() {
           </div>
 
           <div className="mt-12 pt-8 border-t border-slate-800 flex flex-col sm:flex-row justify-between items-center text-xs text-slate-500">
-            <p>© {new Date().getFullYear()} Institution. Tous droits réservés.</p>
+            <p>© 2026 Institution. Tous droits réservés.</p>
             <div className="flex space-x-6 mt-4 sm:mt-0">
               <Link href="#" className="hover:text-slate-400">Mentions Légales</Link>
               <Link href="#" className="hover:text-slate-400">Confidentialité</Link>

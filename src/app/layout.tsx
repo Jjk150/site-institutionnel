@@ -6,6 +6,9 @@ export const metadata: Metadata = {
   title: "Complexe Scolaire SHUKRANI - Site Officiel",
   description:
     "Portail officiel du Complexe Scolaire SHUKRANI. Excellence, éducation et formation de qualité.",
+  other: {
+    "google-adsense-account": "ca-pub-3596384386383833",
+  },
 };
 
 export default function RootLayout({

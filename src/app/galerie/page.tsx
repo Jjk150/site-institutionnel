@@ -1,5 +1,5 @@
 import Navbar from "@/components/Navbar";
-import { Image as ImageIcon, PlayCircle } from "lucide-react";
+
 
 export default function GaleriePage() {
   return (
@@ -25,14 +25,14 @@ export default function GaleriePage() {
               <div className="h-48 bg-emerald-100/60 relative overflow-hidden flex items-center justify-center text-emerald-900 font-semibold text-xs uppercase tracking-wider">
                 {/* Effet de zoom fluide sur le contenu/image au survol sans casser le cadre */}
                 <span className="transition-transform duration-500 ease-out group-hover:scale-105">
-                  Photo Activité / Infrastructure {img}
+                  Photo à publier
                 </span>
               </div>
               <div className="p-5">
                 <h4 className="font-bold text-sm text-slate-900 group-hover:text-emerald-800 transition-colors">
-                  Vue des installations {img}
+                  Emplacement photo {img}
                 </h4>
-                <p className="text-xs text-slate-500 mt-1">Complexe Scolaire SHUKRANI • Likasi[cite: 1]</p>
+                <p className="text-xs text-slate-500 mt-1">Complexe Scolaire SHUKRANI • Likasi</p>
               </div>
             </div>
           ))}
@@ -40,7 +40,7 @@ export default function GaleriePage() {
       </main>
 
       <footer className="bg-emerald-950 text-slate-400 py-6 text-center text-xs border-t border-emerald-900">
-        © 2026 Complexe Scolaire SHUKRANI • Likasi[cite: 1]
+        © 2026 Complexe Scolaire SHUKRANI • Likasi
       </footer>
     </div>
   );

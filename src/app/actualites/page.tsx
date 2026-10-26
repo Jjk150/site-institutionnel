@@ -1,5 +1,5 @@
 import Navbar from "@/components/Navbar";
-import { Calendar, ChevronRight } from "lucide-react";
+import { Calendar } from "lucide-react";
 
 export default function ActualitesPage() {
   return (

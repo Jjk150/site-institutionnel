@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Navbar from "@/components/Navbar";
-import { FileText, Download, Search, Filter, Calendar } from "lucide-react";
+import { FileText, Search, Filter, Calendar } from "lucide-react";
 
 export default function DocumentsPage() {
   const [searchTerm, setSearchTerm] = useState("");
@@ -74,7 +74,7 @@ export default function DocumentsPage() {
             Centre de Téléchargement & Documents
           </h1>
           <p className="text-slate-600 mt-2 max-w-2xl">
-            Retrouvez et téléchargez en libre accès l'ensemble des documents administratifs, formulaires et règlements officiels.
+            Les documents seront téléchargeables après publication des fichiers validés par l’école.
           </p>
         </div>
 
@@ -85,6 +85,7 @@ export default function DocumentsPage() {
             <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400" />
             <input
               type="text"
+              aria-label="Rechercher un document"
               placeholder="Rechercher un document..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
@@ -133,7 +134,7 @@ export default function DocumentsPage() {
                         <span>{doc.date}</span>
                       </span>
                       <span>•</span>
-                      <span>{doc.size}</span>
+                      <span>Non publié</span>
                     </div>
                     <h3 className="text-base font-bold text-slate-900">{doc.title}</h3>
                     <p className="text-sm text-slate-600 mt-1">{doc.description}</p>
@@ -141,17 +142,7 @@ export default function DocumentsPage() {
                 </div>
 
                 <div className="flex-shrink-0 pt-4 md:pt-0 border-t md:border-t-0 border-slate-100">
-                  <a
-                    href="#"
-                    onClick={(e) => {
-                      e.preventDefault();
-                      alert(`Téléchargement simulation: ${doc.title}`);
-                    }}
-                    className="inline-flex items-center justify-center space-x-2 bg-emerald-800 hover:bg-emerald-900 text-white font-semibold px-5 py-2.5 rounded-xl shadow-sm transition-all text-sm w-full md:w-auto"
-                  >
-                    <Download className="w-4 h-4" />
-                    <span>Télécharger</span>
-                  </a>
+                  <button type="button" disabled className="inline-flex items-center rounded-xl bg-slate-100 px-5 py-2.5 text-sm font-semibold text-slate-500 cursor-not-allowed">Fichier à publier</button>
                 </div>
               </div>
             ))

@@ -1,6 +1,6 @@
 import Navbar from "@/components/Navbar";
 import Link from "next/link";
-import { BookOpen, GraduationCap, Award, ArrowRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
 export default function ProgrammesPage() {
   return (

@@ -1,7 +1,7 @@
 import Link from "next/link";
-import Image from "next/image";
+import SchoolLogo from "@/components/SchoolLogo";
 import Navbar from "@/components/Navbar";
-import { CheckCircle2, Award, Users, BookOpen, ArrowRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
 export default function AboutPage() {
   return (
@@ -31,10 +31,10 @@ export default function AboutPage() {
             {/* Colonne visuelle / Blason avec zoom fluide sécurisé */}
             <div className="lg:col-span-5 flex justify-center">
               <div className="relative w-72 h-72 sm:w-80 sm:h-80 bg-white p-6 rounded-3xl border-2 border-emerald-200 shadow-xl flex items-center justify-center overflow-hidden group">
-                <Image
-                  src="/Logo.png"
+                <SchoolLogo
                   alt="Blason C.S. SHUKRANI"
                   fill
+                  sizes="(max-width: 640px) 256px, 320px"
                   className="object-contain p-6 transition-transform duration-700 ease-out group-hover:scale-105"
                 />
               </div>

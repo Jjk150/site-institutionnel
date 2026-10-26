@@ -1,5 +1,5 @@
 import Link from "next/link";
-import Image from "next/image";
+import SchoolLogo from "@/components/SchoolLogo";
 import Navbar from "@/components/Navbar";
 import { 
   ArrowRight, 
@@ -63,10 +63,10 @@ export default function Home() {
               {/* Blason Officiel avec effet de zoom subtil */}
               <div className="lg:col-span-5 flex justify-center">
                 <div className="relative w-64 h-64 sm:w-80 sm:h-80 bg-white/10 p-6 rounded-3xl border-2 border-emerald-500/30 backdrop-blur-md shadow-2xl flex items-center justify-center overflow-hidden group">
-                  <Image
-                    src="/Logo.png"
+                  <SchoolLogo
                     alt="Blason CS Shukrani"
                     fill
+                  sizes="(max-width: 640px) 256px, 320px"
                     className="object-contain p-4 drop-shadow-xl transition-transform duration-700 ease-out group-hover:scale-105"
                     priority
                   />
@@ -86,7 +86,7 @@ export default function Home() {
               { icon: BookOpen, count: "Sections", label: "Maternelle, Primaire, Secondaire" },
               { icon: Award, count: "Excellence", label: "Discipline & Qualité" },
             ].map((stat, i) => (
-              <div key={i} className="flex items-center space-x-4 p-2 transition-transform duration-300 hover:scale-102">
+              <div key={i} className="flex flex-col sm:flex-row items-center gap-3 sm:gap-4 p-2 text-center sm:text-left min-w-0 transition-transform duration-300 hover:scale-102">
                 <div className="p-3.5 bg-emerald-50 text-emerald-800 rounded-xl flex-shrink-0">
                   <stat.icon className="w-7 h-7" />
                 </div>
@@ -137,7 +137,7 @@ export default function Home() {
 
             <div className="bg-gradient-to-tr from-emerald-900 to-emerald-800 rounded-3xl p-8 border border-emerald-700 shadow-xl text-white relative min-h-[380px] flex flex-col justify-between overflow-hidden">
               <div className="relative w-16 h-16">
-                <Image src="/Logo.png" alt="Logo Shukrani" fill className="object-contain brightness-200 opacity-90" />
+                <SchoolLogo alt="Logo Shukrani" fill sizes="(max-width: 1024px) 90vw, 560px" className="object-contain brightness-200 opacity-90" />
               </div>
               <div className="bg-white/10 backdrop-blur-md p-6 rounded-2xl border border-white/10 mt-6 transition-transform duration-500 hover:scale-[1.02]">
                 <p className="text-emerald-100 italic text-sm mb-4">
@@ -184,7 +184,7 @@ export default function Home() {
                     <div className="h-52 bg-slate-200 relative overflow-hidden flex items-center justify-center text-slate-400 group-hover:bg-slate-300 transition-colors">
                       {/* Conteneur image sécurisé avec zoom fluide au survol */}
                       <span className="text-xs font-semibold uppercase tracking-wider text-slate-500 transition-transform duration-500 group-hover:scale-105">
-                        Photo {idx + 1} - Infrastructure
+                        Photo à publier
                       </span>
                     </div>
                     <div className="p-5">
@@ -205,7 +205,7 @@ export default function Home() {
               <div className="bg-slate-900 rounded-3xl p-6 sm:p-10 text-white shadow-2xl relative overflow-hidden border border-slate-800 transition-all duration-300 hover:shadow-emerald-900/20">
                 <div className="aspect-video w-full max-h-[450px] bg-slate-800/80 rounded-2xl border border-slate-700 flex flex-col items-center justify-center text-center p-6 relative overflow-hidden group">
                   <PlayCircle className="w-16 h-16 text-emerald-400 mb-4 animate-bounce transition-transform duration-300 group-hover:scale-110" />
-                  <h4 className="text-lg font-bold">Vidéo Institutionnelle du C.S. SHUKRANI</h4>
+                  <h4 className="text-lg font-bold">Vidéo de présentation à venir</h4>
                   <p className="text-xs text-slate-400 max-w-md mt-2">
                     L'intégration des reportages, présentations et cérémonies d'ouverture s'affichera directement ici.
                   </p>
@@ -251,11 +251,11 @@ export default function Home() {
                     </h3>
                   </div>
                   <div className="pt-6 border-t border-slate-200 flex items-center justify-between text-xs text-slate-500 mt-4">
-                    <span>PDF • {doc.size}</span>
-                    <button className="inline-flex items-center space-x-1 font-semibold text-emerald-800 hover:text-emerald-700 transition-colors">
+                    <span>Fichier à publier</span>
+                    <Link href="/documents" className="inline-flex items-center space-x-1 font-semibold text-emerald-800 hover:text-emerald-700 transition-colors">
                       <Download className="w-4 h-4" />
-                      <span>Télécharger</span>
-                    </button>
+                      <span>Consulter</span>
+                    </Link>
                   </div>
                 </div>
               ))}
@@ -334,7 +334,7 @@ export default function Home() {
             <div className="space-y-4">
               <div className="flex items-center space-x-3 text-white">
                 <div className="relative w-10 h-10">
-                  <Image src="/Logo.png" alt="Logo Shukrani" fill className="object-contain" />
+                  <SchoolLogo alt="Logo Shukrani" fill sizes="160px" className="object-contain" />
                 </div>
                 <span className="text-lg font-bold tracking-tight">C.S. SHUKRANI</span>
               </div>
@@ -374,8 +374,8 @@ export default function Home() {
           <div className="mt-12 pt-8 border-t border-emerald-900 flex flex-col sm:flex-row justify-between items-center text-xs text-slate-400">
             <p>© 2026 Complexe Scolaire SHUKRANI. Tous droits réservés.</p>
             <div className="flex space-x-6 mt-4 sm:mt-0">
-              <Link href="#" className="hover:text-white transition-colors">Mentions Légales</Link>
-              <Link href="#" className="hover:text-white transition-colors">Confidentialité</Link>
+              <Link href="/contact" className="hover:text-white transition-colors">Informations auprès du secrétariat</Link>
+              
             </div>
           </div>
         </div>

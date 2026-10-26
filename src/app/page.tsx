@@ -1,8 +1,8 @@
 import Link from "next/link";
+import Image from "next/image";
 import Navbar from "@/components/Navbar";
 import { 
   ArrowRight, 
-  Building2, 
   GraduationCap, 
   Users, 
   Award, 
@@ -11,7 +11,9 @@ import {
   Calendar, 
   CheckCircle2, 
   Download, 
-  ChevronRight 
+  ChevronRight,
+  PlayCircle,
+  Image as ImageIcon
 } from "lucide-react";
 
 export default function Home() {
@@ -21,54 +23,75 @@ export default function Home() {
 
       <main className="flex-grow">
         {/* HERO SECTION */}
-        <section className="relative bg-gradient-to-br from-blue-950 via-blue-900 to-indigo-950 text-white py-24 lg:py-32 overflow-hidden">
-          <div className="absolute inset-0 bg-[radial-gradient(#3b82f6_1px,transparent_1px)] [background-size:16px_16px] opacity-10"></div>
+        <section className="relative bg-gradient-to-br from-emerald-950 via-emerald-900 to-teal-950 text-white py-20 lg:py-28 overflow-hidden">
+          <div className="absolute inset-0 bg-[radial-gradient(#10b981_1px,transparent_1px)] [background-size:16px_16px] opacity-10"></div>
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div className="max-w-3xl space-y-8">
-              <div className="inline-flex items-center space-x-2 bg-blue-800/60 border border-blue-700/50 rounded-full px-4 py-1.5 text-sm font-medium text-blue-200 backdrop-blur-md">
-                <span className="flex h-2 w-2 rounded-full bg-emerald-400 animate-pulse"></span>
-                <span>Portail Officiel du Complexe Scolaire SHUKRANI</span>
+            <div className="grid lg:grid-cols-12 gap-12 items-center">
+              
+              {/* Contenu Texte */}
+              <div className="lg:col-span-7 space-y-8">
+                <div className="inline-flex items-center space-x-2 bg-emerald-800/60 border border-emerald-700/50 rounded-full px-4 py-1.5 text-sm font-medium text-emerald-200 backdrop-blur-md">
+                  <span className flex h-2 w-2 rounded-full bg-emerald-400 animate-pulse></span>
+                  <span>Portail Officiel • Ville de Likasi</span>
+                </div>
+                
+                <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight">
+                  Complexe Scolaire <span className="text-emerald-300">SHUKRANI</span>
+                </h1>
+                
+                <p className="text-lg sm:text-xl text-emerald-100/90 leading-relaxed">
+                  Notre devise : <strong className="text-red-300 font-semibold">TRAVAIL • PROPRETÉ • DISCIPLINE</strong>. Nous formons l'élite de demain dans un cadre académique rigoureux, innovant et motivant.
+                </p>
+
+                <div className="flex flex-col sm:flex-row gap-4 pt-4">
+                  <Link
+                    href="/programmes"
+                    className="inline-flex items-center justify-center space-x-3 bg-red-800 hover:bg-red-900 text-white font-semibold px-7 py-4 rounded-xl shadow-lg hover:shadow-red-900/25 transition-all"
+                  >
+                    <span>Découvrir nos programmes</span>
+                    <ArrowRight className="w-5 h-5" />
+                  </Link>
+                  <Link
+                    href="/contact"
+                    className="inline-flex items-center justify-center space-x-2 bg-white/10 hover:bg-white/20 text-white font-semibold px-7 py-4 rounded-xl border border-white/20 transition-all backdrop-blur-sm"
+                  >
+                    <span>Nous contacter</span>
+                  </Link>
+                </div>
               </div>
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight">
-                Bâtir l'avenir par l'Excellence et le Savoir
-              </h1>
-              <p className="text-lg sm:text-xl text-blue-100/90 leading-relaxed">
-                Notre institution s'engage à former les leaders de demain et à fournir un cadre académique et professionnel rigoureux, innovant et ouvert sur le monde.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 pt-4">
-                <Link
-                  href="/programmes"
-                  className="inline-flex items-center justify-center space-x-3 bg-blue-500 hover:bg-blue-600 text-white font-semibold px-7 py-4 rounded-xl shadow-lg hover:shadow-blue-500/25 transition-all"
-                >
-                  <span>Découvrir nos programmes</span>
-                  <ArrowRight className="w-5 h-5" />
-                </Link>
-                <Link
-                  href="/contact"
-                  className="inline-flex items-center justify-center space-x-2 bg-white/10 hover:bg-white/20 text-white font-semibold px-7 py-4 rounded-xl border border-white/20 transition-all backdrop-blur-sm"
-                >
-                  <span>Nous contacter</span>
-                </Link>
+
+              {/* Blason Officiel */}
+              <div className="lg:col-span-5 flex justify-center">
+                <div className="relative w-64 h-64 sm:w-80 sm:h-80 bg-white/10 p-6 rounded-3xl border-2 border-emerald-500/30 backdrop-blur-md shadow-2xl flex items-center justify-center">
+                  <Image
+                    src="/Logo.png"
+                    alt="Blason CS Shukrani"
+                    fill
+                    className="object-contain p-4 drop-shadow-xl"
+                    priority
+                  />
+                </div>
               </div>
+
             </div>
           </div>
         </section>
 
         {/* CHIFFRES CLÉS */}
-        <section className="relative -mt-12 z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <section className="relative -mt-10 z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 bg-white p-6 sm:p-8 rounded-2xl shadow-xl border border-slate-100">
             {[
-              { icon: Users, count: "5,000+", label: "Étudiants & Membres" },
+              { icon: Users, count: "1,500+", label: "Élèves & Encadreurs" },
               { icon: GraduationCap, count: "98%", label: "Taux de Réussite" },
-              { icon: BookOpen, count: "25+", label: "Programmes & Pôles" },
-              { icon: Award, count: "15+", label: "Années d'Excellence" },
+              { icon: BookOpen, count: "Sections", label: "Maternelle, Primaire, Secondaire" },
+              { icon: Award, count: "Excellence", label: "Discipline & Qualité" },
             ].map((stat, i) => (
               <div key={i} className="flex items-center space-x-4 p-2">
-                <div className="p-3.5 bg-blue-50 text-blue-900 rounded-xl">
+                <div className="p-3.5 bg-emerald-50 text-emerald-800 rounded-xl flex-shrink-0">
                   <stat.icon className="w-7 h-7" />
                 </div>
                 <div>
-                  <div className="text-2xl sm:text-3xl font-bold text-slate-900">{stat.count}</div>
+                  <div className="text-xl sm:text-2xl font-bold text-slate-900">{stat.count}</div>
                   <div className="text-xs sm:text-sm text-slate-500 font-medium">{stat.label}</div>
                 </div>
               </div>
@@ -76,27 +99,27 @@ export default function Home() {
           </div>
         </section>
 
-        {/* MOT DU DIRIGEANT / PRÉSENTATION */}
+        {/* PRÉSENTATION & VALEURS */}
         <section className="py-20 lg:py-28 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             <div className="space-y-6">
-              <span className="text-blue-900 font-bold tracking-wider text-sm uppercase bg-blue-50 px-3 py-1 rounded-md">
-                Présentation
+              <span className="text-red-800 font-bold tracking-wider text-sm uppercase bg-red-50 px-3 py-1 rounded-md">
+                Présentation Institutionnelle
               </span>
               <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 leading-tight">
-                Complexe Scolaire SHUKRANI
+                Un cadre d'apprentissage moderne à Likasi
               </h2>
               <p className="text-slate-600 leading-relaxed">
-                Fondée avec la mission d'offrir une formation et des services de haute qualité, notre institution s'impose aujourd'hui comme un acteur majeur de développement régional et international.
+                Le Complexe Scolaire SHUKRANI s'engage à offrir un enseignement de qualité supérieure dans la province du Haut-Katanga. Notre pédagogie repose sur la rigueur, l'épanouissement de l'élève et la maîtrise des compétences d'avenir.
               </p>
               <ul className="space-y-3 pt-2">
                 {[
-                  "Enseignement et encadrement de qualité supérieure",
-                  "Infrastructures modernes et équipements de pointe",
-                  "Partenariats stratégiques et ouverture internationale",
+                  "Enseignement et encadrement pédagogique de premier ordre",
+                  "Maternelle, Primaire et Humanités scientifiques & techniques",
+                  "Discipline rigoureuse et valeurs morales fortes",
                 ].map((item, index) => (
                   <li key={index} className="flex items-center space-x-3 text-slate-700 font-medium">
-                    <CheckCircle2 className="w-5 h-5 text-blue-600 flex-shrink-0" />
+                    <CheckCircle2 className="w-5 h-5 text-emerald-600 flex-shrink-0" />
                     <span>{item}</span>
                   </li>
                 ))}
@@ -104,7 +127,7 @@ export default function Home() {
               <div className="pt-4">
                 <Link
                   href="/a-propos"
-                  className="inline-flex items-center space-x-2 text-blue-900 font-semibold hover:text-blue-700 transition-colors"
+                  className="inline-flex items-center space-x-2 text-emerald-900 font-semibold hover:text-emerald-700 transition-colors"
                 >
                   <span>En savoir plus sur notre histoire</span>
                   <ChevronRight className="w-4 h-4" />
@@ -112,20 +135,87 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="bg-gradient-to-tr from-slate-200 to-blue-100 rounded-3xl p-8 border border-slate-200/60 shadow-lg relative min-h-[380px] flex flex-col justify-end">
-              <div className="bg-white/95 backdrop-blur p-6 rounded-2xl shadow-md border border-slate-100">
-                <p className="text-slate-700 italic text-sm mb-4">
-                  « Notre engagement absolu est de fournir aux générations futures les compétences et valeurs nécessaires pour faire face aux défis mondiaux. »
+            <div className="bg-gradient-to-tr from-emerald-900 to-emerald-800 rounded-3xl p-8 border border-emerald-700 shadow-xl text-white relative min-h-[380px] flex flex-col justify-between">
+              <div className="relative w-16 h-16">
+                <Image src="/Logo.png" alt="Logo Shukrani" fill className="object-contain brightness-200 opacity-90" />
+              </div>
+              <div className="bg-white/10 backdrop-blur-md p-6 rounded-2xl border border-white/10 mt-6">
+                <p className="text-emerald-100 italic text-sm mb-4">
+                  « Notre engagement absolu est de fournir aux jeunes générations les compétences académiques et les valeurs morales indispensables pour bâtir un avenir radieux. »
                 </p>
-                <div className="font-bold text-slate-900">M. le Directeur Général</div>
-                <div className="text-xs text-slate-500 font-medium">Direction Générale</div>
+                <div className="font-bold text-white">La Direction Générale</div>
+                <div className="text-xs text-emerald-300 font-medium">C.S. SHUKRANI • Likasi</div>
               </div>
             </div>
           </div>
         </section>
 
-        {/* SECTION DOCUMENTS ET RESSOURCES RAPIDES */}
-        <section className="py-16 bg-slate-100 border-y border-slate-200">
+        {/* SECTION GALERIE PHOTOS & VIDÉOS (NOUVEAU) */}
+        <section className="py-20 bg-slate-100 border-t border-slate-200">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
+              <span className="text-emerald-800 font-bold tracking-wider text-sm uppercase bg-emerald-100 px-3 py-1 rounded-md">
+                Espace Multimédia
+              </span>
+              <h2 className="text-3xl sm:text-4xl font-bold text-slate-900">La Vie Scolaire en Photos & Vidéos</h2>
+              <p className="text-slate-600">Découvrez l'ambiance, nos infrastructures et les événements marquants du complexe.</p>
+            </div>
+
+            {/* Photos Grid */}
+            <div className="mb-14">
+              <div className="flex items-center justify-between mb-6">
+                <h3 className="text-xl font-bold text-slate-900 flex items-center space-x-2">
+                  <ImageIcon className="w-5 h-5 text-emerald-700" />
+                  <span>Galerie Photos</span>
+                </h3>
+                <Link href="/galerie" className="text-sm font-semibold text-emerald-800 hover:underline flex items-center space-x-1">
+                  <span>Voir toute la galerie</span>
+                  <ChevronRight className="w-4 h-4" />
+                </Link>
+              </div>
+
+              <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                {[
+                  { title: "Bâtiment Principal & Salles de Classe", desc: "Nos salles de cours spacieuses et équipées." },
+                  { title: "Activités & Cérémonies Scolaires", desc: "Moments forts de rassemblement et festivités." },
+                  { title: "Laboratoires & Travaux Pratiques", desc: "Espaces dédiés à l'apprentissage scientifique." },
+                ].map((photo, idx) => (
+                  <div key={idx} className="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm hover:shadow-md transition-all group">
+                    <div className="h-52 bg-slate-200 relative flex items-center justify-center text-slate-400 group-hover:bg-slate-300 transition-colors">
+                      {/* Emplacement prêt pour recevoir une vraie photo (Image Next.js) */}
+                      <span className="text-xs font-semibold uppercase tracking-wider text-slate-500">Photo {idx + 1} • Inscription / Infrastructure</span>
+                    </div>
+                    <div className="p-5">
+                      <h4 className="font-bold text-slate-900">{photo.title}</h4>
+                      <p className="text-xs text-slate-500 mt-1">{photo.desc}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Espace Vidéo */}
+            <div>
+              <h3 className="text-xl font-bold text-slate-900 mb-6 flex items-center space-x-2">
+                <PlayCircle className="w-5 h-5 text-red-700" />
+                <span>Présentation Vidéo</span>
+              </h3>
+              <div className="bg-slate-900 rounded-3xl p-6 sm:p-10 text-white shadow-2xl relative overflow-hidden border border-slate-800">
+                <div className="aspect-video w-full max-h-[450px] bg-slate-800/80 rounded-2xl border border-slate-700 flex flex-col items-center justify-center text-center p-6 relative">
+                  <PlayCircle className="w-16 h-16 text-emerald-400 mb-4 animate-bounce" />
+                  <h4 className="text-lg font-bold">Vidéo Institutionnelle du C.S. SHUKRANI</h4>
+                  <p className="text-xs text-slate-400 max-w-md mt-2">
+                    L'intégration des reportages, présentations et cérémonies d'ouverture s'affichera directement ici.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+        {/* DOCUMENTS ET RESSOURCES */}
+        <section className="py-16 bg-white border-b border-slate-200">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex flex-col md:flex-row md:items-end justify-between mb-10">
               <div>
@@ -134,7 +224,7 @@ export default function Home() {
               </div>
               <Link
                 href="/documents"
-                className="mt-4 md:mt-0 text-sm font-semibold text-blue-900 hover:underline flex items-center space-x-1"
+                className="mt-4 md:mt-0 text-sm font-semibold text-emerald-900 hover:underline flex items-center space-x-1"
               >
                 <span>Voir tous les documents</span>
                 <ChevronRight className="w-4 h-4" />
@@ -143,24 +233,24 @@ export default function Home() {
 
             <div className="grid md:grid-cols-3 gap-6">
               {[
-                { title: "Guide de l'usager & Règlement 2026", cat: "Administratif", date: "Octobre 2026", size: "2.4 MB" },
-                { title: "Calendrier Officiel des Activités", cat: "Planning", date: "Septembre 2026", size: "1.1 MB" },
-                { title: "Formulaire d'Inscription & Admission", cat: "Formulaire", date: "Août 2026", size: "850 KB" },
+                { title: "Règlement Intérieur 2026-2027", cat: "Administratif", date: "Octobre 2026", size: "1.8 MB" },
+                { title: "Calendrier Académique Officiel", cat: "Planning", date: "Septembre 2026", size: "1.2 MB" },
+                { title: "Fiche d'Inscription & Admission", cat: "Formulaire", date: "Août 2026", size: "900 KB" },
               ].map((doc, idx) => (
-                <div key={idx} className="bg-white p-6 rounded-xl border border-slate-200 shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
+                <div key={idx} className="bg-slate-50 p-6 rounded-xl border border-slate-200 shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
                   <div>
                     <div className="flex items-center justify-between text-xs text-slate-500 mb-3">
-                      <span className="bg-blue-50 text-blue-800 font-semibold px-2.5 py-1 rounded">{doc.cat}</span>
+                      <span className="bg-emerald-100 text-emerald-800 font-semibold px-2.5 py-1 rounded">{doc.cat}</span>
                       <span>{doc.date}</span>
                     </div>
                     <h3 className="font-semibold text-slate-900 mb-2 flex items-start space-x-2">
-                      <FileText className="w-5 h-5 text-blue-900 flex-shrink-0 mt-0.5" />
+                      <FileText className="w-5 h-5 text-emerald-800 flex-shrink-0 mt-0.5" />
                       <span>{doc.title}</span>
                     </h3>
                   </div>
-                  <div className="pt-6 border-t border-slate-100 flex items-center justify-between text-xs text-slate-500 mt-4">
+                  <div className="pt-6 border-t border-slate-200 flex items-center justify-between text-xs text-slate-500 mt-4">
                     <span>PDF • {doc.size}</span>
-                    <button className="inline-flex items-center space-x-1 font-semibold text-blue-900 hover:text-blue-700">
+                    <button className="inline-flex items-center space-x-1 font-semibold text-emerald-800 hover:text-emerald-700">
                       <Download className="w-4 h-4" />
                       <span>Télécharger</span>
                     </button>
@@ -175,14 +265,14 @@ export default function Home() {
         <section className="py-20 lg:py-28 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-12">
             <div>
-              <span className="text-blue-900 font-bold tracking-wider text-sm uppercase bg-blue-50 px-3 py-1 rounded-md">
+              <span className="text-emerald-800 font-bold tracking-wider text-sm uppercase bg-emerald-50 px-3 py-1 rounded-md">
                 Actualités
               </span>
               <h2 className="text-3xl font-bold text-slate-900 mt-3">Dernières Nouvelles & Événements</h2>
             </div>
             <Link
               href="/actualites"
-              className="mt-4 md:mt-0 inline-flex items-center space-x-2 text-blue-900 font-semibold hover:underline"
+              className="mt-4 md:mt-0 inline-flex items-center space-x-2 text-emerald-800 font-semibold hover:underline"
             >
               <span>Toutes les actualités</span>
               <ArrowRight className="w-4 h-4" />
@@ -192,20 +282,20 @@ export default function Home() {
           <div className="grid md:grid-cols-3 gap-8">
             {[
               {
-                title: "Lancement de la rentrée solennelle 2026-2027",
-                desc: "Découvrez les grandes orientations et les nouveautés prévues pour cette nouvelle année académique.",
+                title: "Rentrée des classes pour l'année 2026-2027",
+                desc: "Accueil chaleureux des élèves et présentation des nouvelles directives pour la nouvelle année.",
                 date: "15 Octobre 2026",
                 tag: "Événement",
               },
               {
-                title: "Signature d'un partenariat académique international",
-                desc: "Un accord stratégique favorisant les échanges, les recherches conjointes et la mobilité.",
+                title: "Remise des prix d'excellence académique",
+                desc: "Célébration des meilleurs élèves s'étant distingués par leur travail et leur discipline.",
                 date: "02 Octobre 2026",
-                tag: "Partenariat",
+                tag: "Distinction",
               },
               {
-                title: "Inauguration du nouveau complexe technologique",
-                desc: "Mise en service d'infrastructures modernes destinées aux travaux pratiques et à la recherche.",
+                title: "Renforcement des équipements pédagogiques",
+                desc: "Arrivée de nouveaux matériels pour soutenir l'apprentissage pratique de nos apprenants.",
                 date: "20 Septembre 2026",
                 tag: "Infrastructure",
               },
@@ -216,15 +306,15 @@ export default function Home() {
                     <Calendar className="w-4 h-4 text-slate-400" />
                     <span>{news.date}</span>
                     <span>•</span>
-                    <span className="font-semibold text-blue-900">{news.tag}</span>
+                    <span className="font-semibold text-emerald-800">{news.tag}</span>
                   </div>
-                  <h3 className="text-lg font-bold text-slate-900 mb-2 hover:text-blue-900 transition-colors cursor-pointer">
+                  <h3 className="text-lg font-bold text-slate-900 mb-2 hover:text-emerald-800 transition-colors cursor-pointer">
                     {news.title}
                   </h3>
                   <p className="text-sm text-slate-600 leading-relaxed">{news.desc}</p>
                 </div>
                 <div className="px-6 pb-6 pt-2">
-                  <Link href="/actualites" className="text-xs font-bold text-blue-900 hover:underline flex items-center space-x-1">
+                  <Link href="/actualites" className="text-xs font-bold text-emerald-800 hover:underline flex items-center space-x-1">
                     <span>Lire la suite</span>
                     <ChevronRight className="w-3 h-3" />
                   </Link>
@@ -236,18 +326,18 @@ export default function Home() {
       </main>
 
       {/* FOOTER INSTITUTIONNEL */}
-      <footer className="bg-slate-950 text-slate-400 border-t border-slate-800">
+      <footer className="bg-emerald-950 text-slate-300 border-t border-emerald-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
             <div className="space-y-4">
               <div className="flex items-center space-x-3 text-white">
-                <div className="p-2 bg-blue-600 rounded-lg">
-                  <Building2 className="h-6 w-6" />
+                <div className="relative w-10 h-10">
+                  <Image src="/Logo.png" alt="Logo Shukrani" fill className="object-contain" />
                 </div>
-                <span className="text-lg font-bold tracking-tight">INSTITUTION</span>
+                <span className="text-lg font-bold tracking-tight">C.S. SHUKRANI</span>
               </div>
               <p className="text-sm text-slate-400 leading-relaxed">
-                Institution de référence dédiée à la qualité de l'enseignement, au développement des compétences et au service de la société.
+                Complexe Scolaire de référence situé à Likasi. Devise : <strong className="text-white">Travail - Propreté - Discipline</strong>.
               </p>
             </div>
 
@@ -255,36 +345,35 @@ export default function Home() {
               <h4 className="text-white text-sm font-semibold tracking-wider uppercase mb-4">Accès Rapides</h4>
               <ul className="space-y-2.5 text-sm">
                 <li><Link href="/a-propos" className="hover:text-white transition-colors">À propos</Link></li>
-                <li><Link href="/programmes" className="hover:text-white transition-colors">Programmes & Services</Link></li>
+                <li><Link href="/programmes" className="hover:text-white transition-colors">Programmes & Sections</Link></li>
                 <li><Link href="/documents" className="hover:text-white transition-colors">Documents Officiels</Link></li>
-                <li><Link href="/actualites" className="hover:text-white transition-colors">Actualités & Communiqués</Link></li>
+                <li><Link href="/actualites" className="hover:text-white transition-colors">Actualités</Link></li>
               </ul>
             </div>
 
             <div>
               <h4 className="text-white text-sm font-semibold tracking-wider uppercase mb-4">Informations</h4>
               <ul className="space-y-2.5 text-sm">
-                <li><Link href="/galerie" className="hover:text-white transition-colors">Galerie Photos</Link></li>
-                <li><Link href="/faq" className="hover:text-white transition-colors">Foire Aux Questions</Link></li>
-                <li><Link href="/contact" className="hover:text-white transition-colors">Contact & Localisation</Link></li>
+                <li><Link href="/galerie" className="hover:text-white transition-colors">Galerie Photos & Vidéos</Link></li>
+                <li><Link href="/contact" className="hover:text-white transition-colors">Inscriptions & Contact</Link></li>
               </ul>
             </div>
 
             <div>
               <h4 className="text-white text-sm font-semibold tracking-wider uppercase mb-4">Contact Officiel</h4>
               <address className="not-italic space-y-2 text-sm text-slate-400">
-                <p>Adresse officielle, Ville, Pays</p>
-                <p>Tél: +243 000 000 000</p>
-                <p>Email: contact@institution.org</p>
+                <p>Likasi, Province du Haut-Katanga</p>
+                <p>République Démocratique du Congo</p>
+                <p className="text-white font-medium pt-1">Complexe Scolaire SHUKRANI</p>
               </address>
             </div>
           </div>
 
-          <div className="mt-12 pt-8 border-t border-slate-800 flex flex-col sm:flex-row justify-between items-center text-xs text-slate-500">
-            <p>© 2026 Institution. Tous droits réservés.</p>
+          <div className="mt-12 pt-8 border-t border-emerald-900 flex flex-col sm:flex-row justify-between items-center text-xs text-slate-400">
+            <p>© 2026 Complexe Scolaire SHUKRANI. Tous droits réservés.</p>
             <div className="flex space-x-6 mt-4 sm:mt-0">
-              <Link href="#" className="hover:text-slate-400">Mentions Légales</Link>
-              <Link href="#" className="hover:text-slate-400">Confidentialité</Link>
+              <Link href="#" className="hover:text-white">Mentions Légales</Link>
+              <Link href="#" className="hover:text-white">Confidentialité</Link>
             </div>
           </div>
         </div>

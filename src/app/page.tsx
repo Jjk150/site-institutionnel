@@ -31,7 +31,7 @@ export default function Home() {
               {/* Contenu Texte */}
               <div className="lg:col-span-7 space-y-8">
                 <div className="inline-flex items-center space-x-2 bg-emerald-800/60 border border-emerald-700/50 rounded-full px-4 py-1.5 text-sm font-medium text-emerald-200 backdrop-blur-md">
-                  <span className flex h-2 w-2 rounded-full bg-emerald-400 animate-pulse></span>
+                  <span className="flex h-2 w-2 rounded-full bg-emerald-400 animate-pulse"></span>
                   <span>Portail Officiel • Ville de Likasi</span>
                 </div>
                 

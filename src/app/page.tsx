@@ -46,28 +46,28 @@ export default function Home() {
                 <div className="flex flex-col sm:flex-row gap-4 pt-4">
                   <Link
                     href="/programmes"
-                    className="inline-flex items-center justify-center space-x-3 bg-red-800 hover:bg-red-900 text-white font-semibold px-7 py-4 rounded-xl shadow-lg hover:shadow-red-900/25 transition-all"
+                    className="inline-flex items-center justify-center space-x-3 bg-red-800 hover:bg-red-900 text-white font-semibold px-7 py-4 rounded-xl shadow-lg hover:shadow-red-900/25 transition-all duration-300 hover:-translate-y-0.5"
                   >
                     <span>Découvrir nos programmes</span>
                     <ArrowRight className="w-5 h-5" />
                   </Link>
                   <Link
                     href="/contact"
-                    className="inline-flex items-center justify-center space-x-2 bg-white/10 hover:bg-white/20 text-white font-semibold px-7 py-4 rounded-xl border border-white/20 transition-all backdrop-blur-sm"
+                    className="inline-flex items-center justify-center space-x-2 bg-white/10 hover:bg-white/20 text-white font-semibold px-7 py-4 rounded-xl border border-white/20 transition-all duration-300 backdrop-blur-sm hover:-translate-y-0.5"
                   >
                     <span>Nous contacter</span>
                   </Link>
                 </div>
               </div>
 
-              {/* Blason Officiel */}
+              {/* Blason Officiel avec effet de zoom subtil */}
               <div className="lg:col-span-5 flex justify-center">
-                <div className="relative w-64 h-64 sm:w-80 sm:h-80 bg-white/10 p-6 rounded-3xl border-2 border-emerald-500/30 backdrop-blur-md shadow-2xl flex items-center justify-center">
+                <div className="relative w-64 h-64 sm:w-80 sm:h-80 bg-white/10 p-6 rounded-3xl border-2 border-emerald-500/30 backdrop-blur-md shadow-2xl flex items-center justify-center overflow-hidden group">
                   <Image
                     src="/Logo.png"
                     alt="Blason CS Shukrani"
                     fill
-                    className="object-contain p-4 drop-shadow-xl"
+                    className="object-contain p-4 drop-shadow-xl transition-transform duration-700 ease-out group-hover:scale-105"
                     priority
                   />
                 </div>
@@ -86,7 +86,7 @@ export default function Home() {
               { icon: BookOpen, count: "Sections", label: "Maternelle, Primaire, Secondaire" },
               { icon: Award, count: "Excellence", label: "Discipline & Qualité" },
             ].map((stat, i) => (
-              <div key={i} className="flex items-center space-x-4 p-2">
+              <div key={i} className="flex items-center space-x-4 p-2 transition-transform duration-300 hover:scale-102">
                 <div className="p-3.5 bg-emerald-50 text-emerald-800 rounded-xl flex-shrink-0">
                   <stat.icon className="w-7 h-7" />
                 </div>
@@ -135,11 +135,11 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="bg-gradient-to-tr from-emerald-900 to-emerald-800 rounded-3xl p-8 border border-emerald-700 shadow-xl text-white relative min-h-[380px] flex flex-col justify-between">
+            <div className="bg-gradient-to-tr from-emerald-900 to-emerald-800 rounded-3xl p-8 border border-emerald-700 shadow-xl text-white relative min-h-[380px] flex flex-col justify-between overflow-hidden">
               <div className="relative w-16 h-16">
                 <Image src="/Logo.png" alt="Logo Shukrani" fill className="object-contain brightness-200 opacity-90" />
               </div>
-              <div className="bg-white/10 backdrop-blur-md p-6 rounded-2xl border border-white/10 mt-6">
+              <div className="bg-white/10 backdrop-blur-md p-6 rounded-2xl border border-white/10 mt-6 transition-transform duration-500 hover:scale-[1.02]">
                 <p className="text-emerald-100 italic text-sm mb-4">
                   « Notre engagement absolu est de fournir aux jeunes générations les compétences académiques et les valeurs morales indispensables pour bâtir un avenir radieux. »
                 </p>
@@ -150,7 +150,7 @@ export default function Home() {
           </div>
         </section>
 
-        {/* SECTION GALERIE PHOTOS & VIDÉOS (NOUVEAU) */}
+        {/* SECTION GALERIE PHOTOS & VIDÉOS AVEC TRANSITIONS FLUIDES */}
         <section className="py-20 bg-slate-100 border-t border-slate-200">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
@@ -161,7 +161,7 @@ export default function Home() {
               <p className="text-slate-600">Découvrez l'ambiance, nos infrastructures et les événements marquants du complexe.</p>
             </div>
 
-            {/* Photos Grid */}
+            {/* Photos Grid avec effet hover sur les cartes et images */}
             <div className="mb-14">
               <div className="flex items-center justify-between mb-6">
                 <h3 className="text-xl font-bold text-slate-900 flex items-center space-x-2">
@@ -180,13 +180,15 @@ export default function Home() {
                   { title: "Activités & Cérémonies Scolaires", desc: "Moments forts de rassemblement et festivités." },
                   { title: "Laboratoires & Travaux Pratiques", desc: "Espaces dédiés à l'apprentissage scientifique." },
                 ].map((photo, idx) => (
-                  <div key={idx} className="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm hover:shadow-md transition-all group">
-                    <div className="h-52 bg-slate-200 relative flex items-center justify-center text-slate-400 group-hover:bg-slate-300 transition-colors">
-                      {/* Emplacement prêt pour recevoir une vraie photo (Image Next.js) */}
-                      <span className="text-xs font-semibold uppercase tracking-wider text-slate-500">Photo {idx + 1} • Inscription / Infrastructure</span>
+                  <div key={idx} className="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm transition-all duration-300 hover:shadow-xl hover:-translate-y-1 group">
+                    <div className="h-52 bg-slate-200 relative overflow-hidden flex items-center justify-center text-slate-400 group-hover:bg-slate-300 transition-colors">
+                      {/* Conteneur image sécurisé avec zoom fluide au survol */}
+                      <span className="text-xs font-semibold uppercase tracking-wider text-slate-500 transition-transform duration-500 group-hover:scale-105">
+                        Photo {idx + 1} • Infrastructure
+                      </span>
                     </div>
                     <div className="p-5">
-                      <h4 className="font-bold text-slate-900">{photo.title}</h4>
+                      <h4 className="font-bold text-slate-900 group-hover:text-emerald-800 transition-colors">{photo.title}</h4>
                       <p className="text-xs text-slate-500 mt-1">{photo.desc}</p>
                     </div>
                   </div>
@@ -200,9 +202,9 @@ export default function Home() {
                 <PlayCircle className="w-5 h-5 text-red-700" />
                 <span>Présentation Vidéo</span>
               </h3>
-              <div className="bg-slate-900 rounded-3xl p-6 sm:p-10 text-white shadow-2xl relative overflow-hidden border border-slate-800">
-                <div className="aspect-video w-full max-h-[450px] bg-slate-800/80 rounded-2xl border border-slate-700 flex flex-col items-center justify-center text-center p-6 relative">
-                  <PlayCircle className="w-16 h-16 text-emerald-400 mb-4 animate-bounce" />
+              <div className="bg-slate-900 rounded-3xl p-6 sm:p-10 text-white shadow-2xl relative overflow-hidden border border-slate-800 transition-all duration-300 hover:shadow-emerald-900/20">
+                <div className="aspect-video w-full max-h-[450px] bg-slate-800/80 rounded-2xl border border-slate-700 flex flex-col items-center justify-center text-center p-6 relative overflow-hidden group">
+                  <PlayCircle className="w-16 h-16 text-emerald-400 mb-4 animate-bounce transition-transform duration-300 group-hover:scale-110" />
                   <h4 className="text-lg font-bold">Vidéo Institutionnelle du C.S. SHUKRANI</h4>
                   <p className="text-xs text-slate-400 max-w-md mt-2">
                     L'intégration des reportages, présentations et cérémonies d'ouverture s'affichera directement ici.
@@ -237,7 +239,7 @@ export default function Home() {
                 { title: "Calendrier Académique Officiel", cat: "Planning", date: "Septembre 2026", size: "1.2 MB" },
                 { title: "Fiche d'Inscription & Admission", cat: "Formulaire", date: "Août 2026", size: "900 KB" },
               ].map((doc, idx) => (
-                <div key={idx} className="bg-slate-50 p-6 rounded-xl border border-slate-200 shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
+                <div key={idx} className="bg-slate-50 p-6 rounded-xl border border-slate-200 shadow-sm transition-all duration-300 hover:shadow-md hover:-translate-y-1 flex flex-col justify-between">
                   <div>
                     <div className="flex items-center justify-between text-xs text-slate-500 mb-3">
                       <span className="bg-emerald-100 text-emerald-800 font-semibold px-2.5 py-1 rounded">{doc.cat}</span>
@@ -250,7 +252,7 @@ export default function Home() {
                   </div>
                   <div className="pt-6 border-t border-slate-200 flex items-center justify-between text-xs text-slate-500 mt-4">
                     <span>PDF • {doc.size}</span>
-                    <button className="inline-flex items-center space-x-1 font-semibold text-emerald-800 hover:text-emerald-700">
+                    <button className="inline-flex items-center space-x-1 font-semibold text-emerald-800 hover:text-emerald-700 transition-colors">
                       <Download className="w-4 h-4" />
                       <span>Télécharger</span>
                     </button>
@@ -300,7 +302,7 @@ export default function Home() {
                 tag: "Infrastructure",
               },
             ].map((news, i) => (
-              <div key={i} className="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
+              <div key={i} className="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm transition-all duration-300 hover:shadow-xl hover:-translate-y-1 flex flex-col justify-between group">
                 <div className="p-6">
                   <div className="flex items-center space-x-2 text-xs text-slate-500 mb-3">
                     <Calendar className="w-4 h-4 text-slate-400" />
@@ -308,7 +310,7 @@ export default function Home() {
                     <span>•</span>
                     <span className="font-semibold text-emerald-800">{news.tag}</span>
                   </div>
-                  <h3 className="text-lg font-bold text-slate-900 mb-2 hover:text-emerald-800 transition-colors cursor-pointer">
+                  <h3 className="text-lg font-bold text-slate-900 mb-2 group-hover:text-emerald-800 transition-colors cursor-pointer">
                     {news.title}
                   </h3>
                   <p className="text-sm text-slate-600 leading-relaxed">{news.desc}</p>
@@ -372,8 +374,8 @@ export default function Home() {
           <div className="mt-12 pt-8 border-t border-emerald-900 flex flex-col sm:flex-row justify-between items-center text-xs text-slate-400">
             <p>© 2026 Complexe Scolaire SHUKRANI. Tous droits réservés.</p>
             <div className="flex space-x-6 mt-4 sm:mt-0">
-              <Link href="#" className="hover:text-white">Mentions Légales</Link>
-              <Link href="#" className="hover:text-white">Confidentialité</Link>
+              <Link href="#" className="hover:text-white transition-colors">Mentions Légales</Link>
+              <Link href="#" className="hover:text-white transition-colors">Confidentialité</Link>
             </div>
           </div>
         </div>

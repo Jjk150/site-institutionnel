@@ -67,8 +67,8 @@ export default function DocumentsPage() {
       <main className="flex-grow py-12 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
         {/* Header de la page */}
         <div className="mb-10 text-center md:text-left">
-          <span className="text-blue-900 font-bold tracking-wider text-sm uppercase bg-blue-50 px-3 py-1 rounded-md">
-            Ressources Officielles
+          <span className="text-emerald-800 font-bold tracking-wider text-sm uppercase bg-emerald-50 px-3 py-1 rounded-md border border-emerald-100">
+            Ressources Officielles • C.S. SHUKRANI
           </span>
           <h1 className="text-3xl sm:text-4xl font-extrabold text-slate-900 mt-3">
             Centre de Téléchargement & Documents
@@ -88,7 +88,7 @@ export default function DocumentsPage() {
               placeholder="Rechercher un document..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full pl-11 pr-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-900/20 focus:border-blue-900 transition-all"
+              className="w-full pl-11 pr-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-emerald-900/20 focus:border-emerald-900 transition-all"
             />
           </div>
 
@@ -101,7 +101,7 @@ export default function DocumentsPage() {
                 onClick={() => setSelectedCategory(cat)}
                 className={`px-3.5 py-1.5 rounded-lg text-xs font-semibold transition-all ${
                   selectedCategory === cat
-                    ? "bg-blue-900 text-white shadow-sm"
+                    ? "bg-emerald-800 text-white shadow-sm"
                     : "bg-slate-100 text-slate-600 hover:bg-slate-200"
                 }`}
               >
@@ -120,12 +120,12 @@ export default function DocumentsPage() {
                 className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-all flex flex-col md:flex-row md:items-center justify-between gap-6"
               >
                 <div className="flex items-start space-x-4">
-                  <div className="p-3 bg-blue-50 text-blue-900 rounded-xl flex-shrink-0 mt-1">
+                  <div className="p-3 bg-emerald-50 text-emerald-900 rounded-xl flex-shrink-0 mt-1">
                     <FileText className="w-6 h-6" />
                   </div>
                   <div>
                     <div className="flex items-center space-x-3 text-xs text-slate-500 mb-1">
-                      <span className="bg-slate-100 font-semibold px-2.5 py-0.5 rounded text-slate-700">
+                      <span className="bg-emerald-50 font-semibold px-2.5 py-0.5 rounded text-emerald-800 border border-emerald-100">
                         {doc.category}
                       </span>
                       <span className="flex items-center space-x-1">
@@ -147,7 +147,7 @@ export default function DocumentsPage() {
                       e.preventDefault();
                       alert(`Téléchargement simulation: ${doc.title}`);
                     }}
-                    className="inline-flex items-center justify-center space-x-2 bg-blue-900 hover:bg-blue-800 text-white font-semibold px-5 py-2.5 rounded-xl shadow-sm transition-all text-sm w-full md:w-auto"
+                    className="inline-flex items-center justify-center space-x-2 bg-emerald-800 hover:bg-emerald-900 text-white font-semibold px-5 py-2.5 rounded-xl shadow-sm transition-all text-sm w-full md:w-auto"
                   >
                     <Download className="w-4 h-4" />
                     <span>Télécharger</span>
@@ -162,6 +162,11 @@ export default function DocumentsPage() {
           )}
         </div>
       </main>
+
+      {/* Footer Institutionnel */}
+      <footer className="bg-emerald-950 text-slate-400 py-8 text-center text-xs border-t border-emerald-900 mt-12">
+        <p>© 2026 Complexe Scolaire SHUKRANI • Likasi, RDC. Tous droits réservés.</p>
+      </footer>
     </div>
   );
 }

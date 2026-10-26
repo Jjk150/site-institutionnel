@@ -4,6 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { Menu, X, Download, Phone } from "lucide-react";
+import logoImg from "../../public/Logo.png"; // Import direct sécurisé de l'image
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -23,11 +24,11 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-20 items-center">
           
-          {/* Logo & Nom */}
+          {/* Logo & Nom avec import direct */}
           <Link href="/" className="flex items-center space-x-3 group">
-            <div className="relative w-12 h-12 flex-shrink-0 transition-transform group-hover:scale-105">
+            <div className="relative w-12 h-12 flex-shrink-0 transition-transform group-hover:scale-105 flex items-center justify-center">
               <img
-                src="/Logo.png"
+                src={logoImg.src}
                 alt="Logo C.S. SHUKRANI"
                 className="w-12 h-12 object-contain"
               />

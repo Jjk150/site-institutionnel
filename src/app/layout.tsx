@@ -2,8 +2,8 @@ import "./globals.css";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Portail Officiel - Institution",
-  description: "Site officiel de l'institution",
+  title: "Complexe Scolaire SHUKRANI - Site Officiel",
+  description: "Portail officiel du Complexe Scolaire SHUKRANI. Excellence, éducation et formation de qualité.",
 };
 
 export default function RootLayout({

@@ -28,15 +28,14 @@ export default function Navbar() {
               <Building2 className="h-7 w-7" />
             </div>
             <div>
-              <span className="text-xl font-bold text-gray-900 tracking-tight block">
-                INSTITUTION
+              <span className="text-lg font-bold text-gray-900 tracking-tight block">
+                C.S. SHUKRANI
               </span>
               <span className="text-xs text-blue-700 font-semibold tracking-wider uppercase block">
-                Excellence & Innovation
+                Excellence & Discipline
               </span>
             </div>
           </Link>
-
           {/* Navigation Desktop */}
           <nav className="hidden lg:flex items-center space-x-8">
             {navLinks.map((link) => (

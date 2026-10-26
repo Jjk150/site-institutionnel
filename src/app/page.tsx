@@ -27,7 +27,7 @@ export default function Home() {
             <div className="max-w-3xl space-y-8">
               <div className="inline-flex items-center space-x-2 bg-blue-800/60 border border-blue-700/50 rounded-full px-4 py-1.5 text-sm font-medium text-blue-200 backdrop-blur-md">
                 <span className="flex h-2 w-2 rounded-full bg-emerald-400 animate-pulse"></span>
-                <span>Portail Officiel de l'Institution</span>
+                <span>Portail Officiel du Complexe Scolaire SHUKRANI</span>
               </div>
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight">
                 Bâtir l'avenir par l'Excellence et le Savoir
@@ -84,7 +84,7 @@ export default function Home() {
                 Présentation
               </span>
               <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 leading-tight">
-                Une institution tournée vers la rigueur, l'innovation et le développement
+                Complexe Scolaire SHUKRANI
               </h2>
               <p className="text-slate-600 leading-relaxed">
                 Fondée avec la mission d'offrir une formation et des services de haute qualité, notre institution s'impose aujourd'hui comme un acteur majeur de développement régional et international.

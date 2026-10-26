@@ -28,7 +28,7 @@ export default function Navbar() {
           <Link href="/" className="flex items-center space-x-3 group">
             <div className="relative w-12 h-12 flex-shrink-0 transition-transform group-hover:scale-105 flex items-center justify-center">
               <img
-                src="/Logo.png"
+                src="//logo.png"
                 alt="Logo C.S. SHUKRANI"
                 className="w-12 h-12 object-contain"
               />

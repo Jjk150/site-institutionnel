@@ -184,7 +184,7 @@ export default function Home() {
                     <div className="h-52 bg-slate-200 relative overflow-hidden flex items-center justify-center text-slate-400 group-hover:bg-slate-300 transition-colors">
                       {/* Conteneur image sécurisé avec zoom fluide au survol */}
                       <span className="text-xs font-semibold uppercase tracking-wider text-slate-500 transition-transform duration-500 group-hover:scale-105">
-                        Photo {idx + 1} • Infrastructure
+                        Photo {idx + 1} - Infrastructure
                       </span>
                     </div>
                     <div className="p-5">

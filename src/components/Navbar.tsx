@@ -26,12 +26,10 @@ export default function Navbar() {
           {/* Logo & Nom */}
           <Link href="/" className="flex items-center space-x-3 group">
             <div className="relative w-12 h-12 flex-shrink-0 transition-transform group-hover:scale-105">
-              <Image
+              <img
                 src="/Logo.png"
-                alt="Logo Complexe Scolaire SHUKRANI"
-                fill
-                className="object-contain"
-                priority
+                alt="Logo C.S. SHUKRANI"
+                className="w-12 h-12 object-contain"
               />
             </div>
             <div>

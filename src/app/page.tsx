@@ -1,5 +1,6 @@
 import Link from "next/link";
 import SchoolLogo from "@/components/SchoolLogo";
+import AdsterraBanner from "@/components/AdsterraBanner";
 import Navbar from "@/components/Navbar";
 import { 
   ArrowRight, 
@@ -325,6 +326,7 @@ export default function Home() {
             ))}
           </div>
         </section>
+        <AdsterraBanner />
       </main>
 
       {/* FOOTER INSTITUTIONNEL */}

@@ -1,0 +1,11 @@
+import Image from "next/image";
+import Link from "next/link";
+import { Building2, Code2, UserRound, ArrowUpRight } from "lucide-react";
+import { presentation } from "@/data/presentation";
+export default function PeopleSection() {
+ const { promoter, developer } = presentation;
+ return <section id="equipe" className="section wrap"><div className="section-heading"><div><span className="eyebrow">UNE VISION, DES ENGAGEMENTS</span><h2>L’école et sa présence numérique.</h2></div></div><div className="people-grid">
+ <article className="person-card promoter-card"><div className="person-topline"><span className="person-symbol"><Building2 aria-hidden="true"/></span><span>LA VISION DE L’ÉTABLISSEMENT</span></div><div className="person-main"><div className="person-avatar">{promoter.photo ? <Image src={promoter.photo} alt={promoter.name || "Le promoteur de l’établissement"} fill sizes="112px"/>:<UserRound size={48} strokeWidth={1.3} aria-hidden="true"/>}</div><div><p className="person-role">{promoter.role}</p><h3>{promoter.name || "Le promoteur de Shukrani"}</h3></div></div>{promoter.message ? <blockquote>{promoter.message}</blockquote> : <p>Retrouvez prochainement le portrait du promoteur et sa présentation de la vision de l’établissement.</p>}<Link href="/a-propos#promoteur" className="text-link">La vision et l’identité de l’école <ArrowUpRight size={16} aria-hidden="true"/></Link></article>
+ <article className="person-card developer-card"><div className="person-topline"><span className="person-symbol"><Code2 aria-hidden="true"/></span><span>CONCEPTION & DÉVELOPPEMENT</span></div><div className="person-main"><div className="person-avatar">{developer.photo ? <Image src={developer.photo} alt={developer.name} fill sizes="112px"/>:<span className="developer-initials" aria-hidden="true">JJK<span>DEV</span></span>}</div><div><p className="person-role">{developer.brand}</p><h3>{developer.name}</h3><span className="developer-tag">Développeur du site</span></div></div><p>{developer.description}</p>{developer.portfolioUrl ? <a className="text-link" href={developer.portfolioUrl} target="_blank" rel="noopener noreferrer">Découvrir mon travail <ArrowUpRight size={16} aria-hidden="true"/></a> : <span className="developer-signature">Une réalisation {developer.brand} <Code2 size={17} aria-hidden="true"/></span>}</article>
+ </div></section>;
+}

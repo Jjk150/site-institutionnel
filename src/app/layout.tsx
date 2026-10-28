@@ -1,6 +1,10 @@
 import "./globals.css";
 import type { Metadata } from "next";
-import Script from "next/script";
+import AdSenseLoader from "@/components/AdSenseLoader";
+import Navbar from "@/components/Navbar";
+import SiteFooter from "@/components/SiteFooter";
+import MotionEffects from "@/components/MotionEffects";
+import BackToTop from "@/components/BackToTop";
 
 export const metadata: Metadata = {
   title: "Complexe Scolaire SHUKRANI - Site Officiel",
@@ -19,15 +23,14 @@ export default function RootLayout({
   return (
     <html lang="fr">
       <body>
+        <a href="#contenu" className="skip-link">Aller au contenu</a>
+        <Navbar />
         {children}
+        <SiteFooter />
+        <MotionEffects />
+        <BackToTop />
 
-        <Script
-          id="google-adsense"
-          async
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3596384386383833"
-          crossOrigin="anonymous"
-          strategy="afterInteractive"
-        />
+        <AdSenseLoader />
       </body>
     </html>
   );

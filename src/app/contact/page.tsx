@@ -1,10 +1,15 @@
 "use client";
 
-import { useState } from "react";
-import Navbar from "@/components/Navbar";
+import { Suspense, useState } from "react";
+import { useSearchParams } from "next/navigation";
+import { school } from "@/data/school";
+
 import { Mail, Phone, MapPin, Clock, Send, CheckCircle, Loader2 } from "lucide-react";
 
-export default function ContactPage() {
+function ContactFormPage() {
+  const query = useSearchParams();
+  const requestedCycle = query.get("cycle")?.slice(0, 120) || "";
+  const initialSubject = query.get("demande") === "inscription" ? `Demande d’inscription${requestedCycle ? ` — ${requestedCycle}` : ""}` : "";
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
@@ -12,7 +17,7 @@ export default function ContactPage() {
     nom: "",
     email: "",
     telephone: "",
-    sujet: "",
+    sujet: initialSubject,
     message: "",
   });
 
@@ -43,9 +48,9 @@ export default function ContactPage() {
 
   return (
     <div className="min-h-screen bg-slate-50 text-slate-900 flex flex-col font-sans">
-      <Navbar />
 
-      <main className="flex-grow py-12 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+
+      <main id="contenu" className="flex-grow py-12 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
         {/* Header */}
         <div className="mb-10 text-center md:text-left">
           <span className="text-red-800 font-bold tracking-wider text-sm uppercase bg-red-50 px-3 py-1 rounded-md border border-red-100">
@@ -55,7 +60,7 @@ export default function ContactPage() {
             Contactez le Complexe Scolaire SHUKRANI
           </h1>
           <p className="text-slate-600 mt-2 max-w-2xl">
-            Posez vos questions sur nos programmes, les inscriptions ou les tarifs. Notre équipe administrative vous répondra directement par email ou téléphone.
+            Pour connaître les conditions d’inscription, les pièces du dossier ou les tarifs, renseignez-vous auprès du secrétariat. La réception des messages en ligne reste à activer.
           </p>
         </div>
 
@@ -77,7 +82,8 @@ export default function ContactPage() {
                     <h3 className="text-xs uppercase font-bold text-emerald-300 tracking-wider">Adresse Directe</h3>
                     <p className="text-sm font-medium mt-1 leading-relaxed">
                       Complexe Scolaire SHUKRANI<br />
-                      Ville de Likasi, Province du Haut-Katanga<br />
+                      384/385, route Lubumbashi<br />
+                      Commune de Shituru, Likasi, Haut-Katanga<br />
                       République Démocratique du Congo
                     </p>
                   </div>
@@ -111,8 +117,8 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <h3 className="text-xs uppercase font-bold text-emerald-300 tracking-wider">Heures de Réception</h3>
-                    <p className="text-sm font-medium mt-1">Lun - Ven : 07h30 - 15h30</p>
-                    <p className="text-xs text-emerald-300 mt-0.5">Samedi : 08h00 - 12h00</p>
+                    <p className="text-sm font-medium mt-1">Horaires à confirmer auprès de l’école</p>
+                    <p className="text-xs text-emerald-300 mt-0.5">Préparez votre visite avec le secrétariat.</p>
                   </div>
                 </div>
               </div>
@@ -120,7 +126,7 @@ export default function ContactPage() {
           </div>
 
           {/* Formulaire de Contact avec Réponse Automatique */}
-          <div className="lg:col-span-2 bg-white p-8 rounded-3xl border border-slate-200 shadow-sm">
+          <div id="inscription" className="lg:col-span-2 bg-white p-8 rounded-3xl border border-slate-200 shadow-sm">
             <h2 className="text-xl font-bold text-slate-900 mb-2">
               Envoyer un message au secrétariat
             </h2>
@@ -262,11 +268,17 @@ export default function ContactPage() {
             )}
           </div>
         </div>
+        <section className="mt-10 rounded-3xl border border-slate-200 bg-white p-8">
+          <h2 className="text-xl font-bold">Nous situer à Likasi</h2>
+          <p className="mt-3 text-slate-600">{school.address}</p>
+          {school.mapsUrl ? <a href={school.mapsUrl} target="_blank" rel="noopener noreferrer" className="button button-primary mt-4">Ouvrir la position dans Google Maps ↗</a> : <p className="mt-3 text-sm text-slate-500">La position exacte sur la carte sera ajoutée après confirmation par l’établissement.</p>}
+        </section>
       </main>
 
-      <footer className="bg-emerald-950 text-slate-400 py-8 text-center text-xs border-t border-emerald-900 mt-12">
-        <p>© 2026 Complexe Scolaire SHUKRANI • Likasi, RDC. Tous droits réservés.</p>
-      </footer>
+      
     </div>
   );
+}
+export default function ContactPage() {
+ return <Suspense fallback={<main id="contenu" className="wrap section"><h1>Contact et inscriptions</h1><p>Chargement du formulaire…</p></main>}><ContactFormPage /></Suspense>;
 }
